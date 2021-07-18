@@ -1,0 +1,44 @@
+<%- include("partials/header"); -%>
+
+<div class="history">
+    <h1>Transaction History</h1>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <td>
+                Sender
+            </td>
+            <td>
+                Reciever
+            </td>
+            <td>
+                Amount
+            </td>
+            <td>
+                Date & Time
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <% history.forEach(function(hist){ %>
+        <tr>
+            <td>
+                <%= hist.sender %>
+            </td>
+            <td>
+                <%= hist.reciver %>
+            </td>
+            <td>
+                <%= hist.amount %>
+            </td>
+            <td>
+               <%=  hist.date%>
+            </td>
+        </tr>
+        <%  }) %>
+    </tbody>
+</table>
+
+<%- include("partials/footer"); -%>

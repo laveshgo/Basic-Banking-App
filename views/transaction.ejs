@@ -1,0 +1,61 @@
+<%- include("partials/header"); -%>
+
+<div class="transaction">
+    <h1>Make Transaction</h1>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+                Balance
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <%= name %>
+            </td>
+            <td>
+                <%= email %>
+            </td>
+            <td>
+                <%= money %>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="trans">
+    <form action="/transaction" method="post">
+        <div class="form-group">
+            <label>Send to :</label>
+            <select class="form-control" name="person">
+                <option value="" selected disabled hidden>
+                    Choose here
+                </option>
+                <% customers.forEach(function(cust){ %>
+                <% if(cust._id != sender){  %>
+                <option value=<%= cust._id %>>
+                    <%= cust.name %>
+                </option>
+                <% }}) %>
+            </select>
+            <label>Amount :</label>
+            <input class="form-control" type="number" name="Amount">
+            <input class="form-control" type="hidden" name="sender" value="<%= sender %>">
+        </div>
+        <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+    </form>
+</div>
+
+
+<%- include("partials/footer"); -%>

@@ -1,0 +1,54 @@
+<%- include("partials/header"); -%>
+
+<div class="customer">
+<h1>Customers List</h1>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <td>
+                Sr. No.
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+                Balance
+            </td>
+            <td>
+                Payment
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <% customers.forEach(function(cust){ %>
+        <tr>
+            <td>
+                <%= cust.sr %>
+            </td>
+            <td>
+                <%= cust.name %>
+            </td>
+            <td>
+                <%= cust.email %>
+            </td>
+            <td>
+                <%= cust.money %>
+            </td>
+            <td>
+                <div>
+                    <a role="button" class="btn btn-outline-dark" href="/customers/<%=cust._id%>">Make Transaction</a>
+                </div> 
+            </td>
+        </tr>
+        <%  }) %>
+    </tbody>
+</table>
+
+
+
+<%- include("partials/footer"); -%>
